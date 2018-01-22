@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<!--
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License. See accompanying LICENSE file.
+-->
+
+<!-- Put site-specific property overrides in this file. -->
+
+<configuration>
+	<!--指定nameservice的名称为mycluster-->
+	<property>
+	  <name>fs.defaultFS</name>
+	  <value>hdfs://mycluster</value>
+	</property>
+	<!--编辑日志文件存储的路径-->
+	<property>
+	  <name>dfs.journalnode.edits.dir</name>
+	  <value>/usr/local/hadoop-2.7.3/data/jn</value>
+	</property>
+	<!--设置缓存存放位置，linux会默认清楚缓存，设置以后缓存就不会清楚-->
+	<property>
+	   <name>hadoop.tmp.dir</name>
+	   <value>/usr/local/hadoop-2.7.3/data/tmp</value>
+	</property>
+	<!--客户端RPC重试次数-->
+	<property>
+  		<name>ipc.client.connect.max.retries</name>
+  		<value>100</value>
+ 	</property>
+	<!--客户端重试时间间隔-->
+ 	<property>
+  		<name>ipc.client.connect.retry.interval</name>
+  		<value>10000</value>
+ 	</property>
+	<!--配置自己的zk集群-->
+	<property>
+	  <name>ha.zookeeper.quorum</name>
+	  <value>hadoop01.zhang.com:2181,hadoop02.zhang.com:2181,hadoop03.zhang.com:2181</value>
+	</property>
+	
+<!--设置namenode节点以及入口
+<property>
+    <name>fs.defaultFS</name>
+    <value>hdfs://192.168.75.3:8020</value>
+</property>
+设置缓存存放位置，linux会默认清楚缓存，设置以后缓存就不会清楚
+<property>
+    <name>hadoop.tmp.dir</name>
+    <value>/usr/local/hadoop-2.7.3/data/tmp</value>
+</property>
+开启垃圾回收机制
+<property>
+    <name>fs.trash.interval</name>
+    <value>10080</value>
+</property>
+-->
+</configuration>
